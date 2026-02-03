@@ -45,11 +45,11 @@ class Search(commands.Cog):
         embeds = []
         for hit in result:
             em = discord.Embed(
-                title=f"Document ID: {hit.source.document_id}",
+                title=f"{hit.source.dataset}/{hit.source.origin_file_name} pages {hit.source.start_page}-{hit.source.end_page}",
                 description=f"{hit.source.origin_file_uri}\n{hit.content}",
             )
             em.set_footer(
-                text=f"name:{hit.source.origin_file_name} | indexed at:{hit.source.indexed_at}"
+                text=f"document id:{hit.source.document_id} name:{hit.source.origin_file_name} | indexed at:{hit.source.indexed_at}"
             )
             embeds.append(em)
         if len(embeds) == 0:

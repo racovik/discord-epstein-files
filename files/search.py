@@ -20,6 +20,7 @@ class Source:
     processed_at: str
     indexed_at: str
     source: str
+    dataset: str
 
 
 @dataclass
@@ -35,13 +36,18 @@ headers = {
 }
 
 
-def strip_html_regex(text: str) -> str:
+def _strip_html_regex(text: str) -> str:
     return re.sub(r"<[^>]+>", "", text)
 
 
-def process_hit_content(contents: dict) -> str:
+def _process_hit_content(contents: dict) -> str:
     contents_ = "\n".join(contents)
-    return strip_html_regex(contents_)
+    return _strip_html_regex(contents_)
+
+
+def _get_dataset_from_uri(uri: str) -> str:
+    dataset = uri.split("/")[-2]
+    return dataset
 
 
 def _process_hits(hit_data: dict) -> List[Hit]:
@@ -61,8 +67,9 @@ def _process_hits(hit_data: dict) -> List[Hit]:
             processed_at=source["processedAt"],
             indexed_at=source["indexedAt"],
             source=source["source"],
+            dataset=_get_dataset_from_uri(source["ORIGIN_FILE_URI"]),
         )
-        content = process_hit_content(hit["highlight"]["content"])
+        content = _process_hit_content(hit["highlight"]["content"])
         hits.append(
             Hit(
                 source=_source,
