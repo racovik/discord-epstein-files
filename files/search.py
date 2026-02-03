@@ -3,6 +3,7 @@ import httpx
 from dataclasses import dataclass
 import asyncio
 import re
+from urllib.parse import quote
 
 BASE_URL = "https://www.justice.gov/multimedia-search"
 
@@ -60,7 +61,7 @@ def _process_hits(hit_data: dict) -> List[Hit]:
             start_page=source["startPage"],
             end_page=source["endPage"],
             origin_file_name=source["ORIGIN_FILE_NAME"],
-            origin_file_uri=source["ORIGIN_FILE_URI"],
+            origin_file_uri=quote(source["ORIGIN_FILE_URI"], safe=":/"),
             bucket=source["bucket"],
             key=source["key"],
             content_type=source["contentType"],
