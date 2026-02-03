@@ -1,2 +1,4 @@
 discord
 httpx
+python-dotenv
+
