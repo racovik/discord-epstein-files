@@ -1,0 +1,14 @@
+[project]
+name = "epstein-search"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "discord>=2.3.2",
+    "httpx>=0.28.1",
+]
+
+[tool.pyright]
+include = ["."]
+extraPaths = ["."]
