@@ -7,8 +7,16 @@ Discord bot that permit users search to epstein files.
 ## Setup
 
 1. Clone the repository.
-2. Install dependencies (if any). uv sync
-3. Run `main.py`.
+2. Install dependencies (if any).
+```
+uv sync
+```
+3. create config.py with discord_token
+
+4. Run `main.py`.
+```
+uv run main.py
+```
 
 ## Files
 
