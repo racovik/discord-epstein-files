@@ -2,9 +2,12 @@ import discord
 from discord.ext import commands
 
 import logging
-from config import discord_token
-import os
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+discord_token = os.getenv("DISCORD_TOKEN")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s | %(name)s | %(levelname)s | %(message)s"
