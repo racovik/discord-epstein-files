@@ -1,7 +1,8 @@
 # Discord Bot Epstein Search Project
 
 Discord bot that permit users search to epstein files.
-<img width="695" height="386" alt="image" src="https://github.com/user-attachments/assets/413e9e7a-8399-463b-816d-0663e7be5af7" />
+<img width="695" height="386" alt="ep-bot" src="https://github.com/user-attachments/assets/1c19d3e8-362c-4ed3-b077-7b80acc3dcaa" />
+
 
 ## Setup
 
